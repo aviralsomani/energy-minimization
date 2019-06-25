@@ -1,16 +1,12 @@
-P = rand(10000, 3);
-tic
-e = energy(P, 2)
-toc
-sizes = [100, 500, 1000, 5000, 10000]
-for i = 1:5
+sizes = [100, 500, 1000, 5000, 10000, 50000, 100000]
+for i = 1:7
     A = rand(sizes(i), 3);
     fprintf("Trial %d for gradient: ", i)
     tic
     del = gradient(A, 2);
     toc
 end
-for i = 1:5
+for i = 1:7
     A = rand(sizes(i), 3);
     fprintf("Trial %d for energy: ", i)
     tic
