@@ -1,7 +1,7 @@
 function del = gradient(points, s)
 n = size(points, 1);
 del = zeros(size(points));
-for i = 1:n
+parfor i = 1:n
     val = 0;
     for j = 1:n
         if (j ~= i)
