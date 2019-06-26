@@ -1,6 +1,6 @@
 function D = KNNDist(P, k)
 n = size(P, 1);
-D = zeros(n, k)
+D = zeros(n, k);
 A = zeros(n-1, k);
 for j = 1:n
     if (j == 1)
