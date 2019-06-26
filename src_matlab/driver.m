@@ -11,6 +11,6 @@ for j = 1:5
     A = rand(10000, 3);
     fprintf("Trial %d for energy with KNN (k=%d): ", j, k(j))
     tic
-    del = energy(KNNDist(A, 5), 2);
+    del = energy(KNNDist(A, k(j)), 2);
     toc
 end

@@ -1,6 +1,6 @@
 function D = KNNDist(P, k)
 n = size(P, 1);
-D = zeros(n, k);
+D = zeros(n, k)
 A = zeros(n-1, k);
 for j = 1:n
     if (j == 1)
@@ -10,7 +10,7 @@ for j = 1:n
             P(j+1:n, :)];
     end
     P1 = P(j, :);
-    [~, dists] = knnsearch(P1, A, 'K', k);
+    [~, dists] = knnsearch(P1, A, 'K', k)
     D(j, :) = dists';
 end
 end
