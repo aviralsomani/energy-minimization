@@ -9,7 +9,8 @@ for j = 1:n
         A = [P(1:j-1, :)
             P(j+1:n, :)];
     end
-    [dists] = knnsearch(A,P1,'K',k);
+    P1 = P(j, :);
+    [~, dists] = knnsearch(A,P1,'K',k);
     D(j, :) = dists';
 end
 end
