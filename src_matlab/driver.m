@@ -1,16 +1,16 @@
-sizes = [5000, 10000, 15000, 20000, 25000, 30000]
-for i = 1:5
-    A = rand(sizes(i), 3);
-    fprintf("Trial %d for gradient: ", i)
+sizes = [5000, 10000, 15000, 20000]
+for j = 1:4
+    A = rand(sizes(j), 3);
+    fprintf("Trial %d for gradient: ", j)
     tic
     del = gradient(A, 2);
     toc
 end
-for i = 1:5
-    A = rand(sizes(i), 3);
-    fprintf("Trial %d for energy: ", i)
+k = [3, 4, 5, 6, 7]
+for j = 1:5
+    A = rand(10000, 3);
+    fprintf("Trial %d for energy with KNN (k=%d): ", j, k(j))
     tic
-    del = energy(A, 2);
+    del = energy(KNNDist(A, 5), 2);
     toc
 end
-    
