@@ -3,6 +3,7 @@ for l = 1:4
     fprintf("Trial with %d points: ", s(l))
     A = rand(s(l), 3);
     tic
-    e = energy(KNNDist(A, 5), 2)
+    e = energy(KNNDist(A, 5), 2);
     toc
+    fprintf("Calculated energy is %0.7f\n", e);
 end
