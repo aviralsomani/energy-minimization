@@ -1,7 +1,7 @@
 k = [3, 4, 5, 6, 7]
 s = [1000, 2000, 3000, 4000, 5000]
 for l = 1:5
-    fprintf("Trial with %d points: \n", s(j))
+    fprintf("Trial with %d points: \n", s(l))
     for j = 1:5
         A = rand(s(l), 3);
         fprintf("\tTrial %d for energy with KNN (k=%d): \n", j, k(j))
