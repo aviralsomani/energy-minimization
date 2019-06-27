@@ -17,11 +17,13 @@ k = [32, 64, 128, 256, 512]
 % end
 
 for l = 1:5
-    fprintf("Trial for %d points: ", s(l))
+    fprintf("Trial for %d points: \n", s(l))
+    fprintf("KNNDist Trial: ")
     A = rand(s(l), 3);
     tic
     F = KNNDist(A, 100);
     toc
+    fprintf("Energy Trial: ")
     tic
     e = energy(F, 2);
     toc
