@@ -16,7 +16,7 @@ k = [32, 64, 128, 256, 512]
 %     toc
 % end
 
-for l = 1:5
+for l = 1:4
     fprintf("Trial for %d points: \n", s(l))
     fprintf("KNNDist Trial: ")
     A = rand(s(l), 3);
