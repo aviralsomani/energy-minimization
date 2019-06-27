@@ -9,7 +9,9 @@ fprintf("Trial with size of point configurations (k = 5)\n")
 %     toc
 % end
 fprintf("Trial with differing values of \'k\' (n = 10000) \n")
-A = rand(10000, 3);
+A = rand(10000, 2)
+A2 = sqrt(1 - A(:,1)^2 - A(:, 2)^2)
+A = [A A2]
 scatter3(A(:, 1), A(:, 2), A(:, 3))
 for l = 1:5
     fprintf("Trial %d (k = %d): ", l, k(l))
