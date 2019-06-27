@@ -1,14 +1,15 @@
-function [val, del] = vGradient(P, s)
+function [del] = vGradient(P, s)
 n = size(P, 1);
 del = zeros(size(P));
-val = zeros([size(P) 3]);
-parfor i = 1:n
-    val = zeros([size(P) 3]);
+val = zeros(size(P));
+for i = 1:n
+    val = zeros(size(P));
     cur = P(i, :);
-    val(:,:,1) = -1 * P + cur;
-    val(:,:,3) = (-2 * s * val(:,:,1));
-    norms = vecnorm(val(:,:,1), 2, 2);
-    val(:,:,2) = val(:,:,3)./norms.^(s+2);
-    val(i,:,2) = zeros(1, size(P,2));
-    del(i,:) = sum(val(:,:,2));
+    val = -1 * P + cur;
+    norms = vecnorm(val,2,2).^(s+2);
+    val = -2 * s * val;
+    val = val./norms
+    val(i,:) = zeros(1, size(P,2));
+    del(i,:) = sum(val);
+end
 end
