@@ -22,4 +22,7 @@ for l = 1:5
     tic
     F = KNNDist(A, 100);
     toc
+    tic
+    e = energy(F);
+    toc
 end

@@ -12,11 +12,6 @@
 % end
 
 function e = energy(dists, s)
-    p = -1 * s; n = size(dists, 1); k = size(dists, 2); e = 0;
-    parfor j1 = 1:n
-        for j2 = 1:k
-            e = e + power(dists(j1, j2), p)
-        end
-    end
+    e = sum(dists.^(-1*s), 'all');
 end
 
