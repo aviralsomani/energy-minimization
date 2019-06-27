@@ -1,4 +1,4 @@
-sizes = [5000, 10000, 15000, 20000]
+sizes = [5000, 7500, 10000, 12500]
 for j = 1:4
     A = rand(sizes(j), 3);
     fprintf("Trial %d for parfor gradient: ", j)
