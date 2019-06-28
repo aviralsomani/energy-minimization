@@ -1,11 +1,11 @@
 function D = KNNDist(P, k)
 n = size(P, 1);
 D = zeros(n, k);
-dists = zeros(k, 1)
+dists = zeros(k, 1);
 parfor j = 1:n
-    if (j == 1); [~,dists] = knnsearch(P(2:n),P(j,:),'K',k);
+    if (j == 1); [~,dists] = knnsearch(P(2:n,:),P(j,:),'k',k)
     else; [~,dists] = knnsearch([P(1:j-1,:)
-                    P(j+1:n,:)],P(j,:),'K',k);
+                                P(j+1:n,:)],P(j,:),'k',k)
     end
     D(j, :) = dists';
 end
