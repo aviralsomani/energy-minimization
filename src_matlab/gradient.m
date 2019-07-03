@@ -1,11 +1,8 @@
 function [del] = gradient(P, s)
 n = size(P, 1);
 del = zeros(size(P));
-val = zeros(size(P));
 parfor i = 1:n
-    val = zeros(size(P));
-    cur = P(i, :);
-    val = -1 * P + cur;
+    val = -1 * P + P(i, :);
     norms = vecnorm(val,2,2).^(s+2);
     val = -2 * s * val;
     val = val./norms;

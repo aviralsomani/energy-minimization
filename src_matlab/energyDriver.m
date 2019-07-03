@@ -1,4 +1,4 @@
-sizes = [5000, 7500, 10000, 12500]
+sizes = [5000, 7500, 10000, 12500];
 for j = 1:4
     A = rand(sizes(j), 3);
     fprintf("Trial %d for iterative Energy: ", j)

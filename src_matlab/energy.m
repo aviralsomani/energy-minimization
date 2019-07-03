@@ -5,9 +5,9 @@ function e = energy(P, s)
     parfor i = 1:n
         D(i,:) = vecnorm(P - P(i,:),2,2)';
     end
-    D = D .^ p;
-    D = triu(D, 1);
-    e = sum(D, 'all');
+    D = D + eye(size(D, 1));
+    %e = sum(sum(triu(D .^ p, 1)));
+    e = sum(D.^p, 'all') - n;
 end
 
 % function e = energy(dists, s)
