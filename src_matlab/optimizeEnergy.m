@@ -3,10 +3,12 @@ function [P_next, en, pg_ratio, err, alph] = optimizeEnergy(Pfn, k, s, alph, eps
     en = energy(P, 2);
     step = 1;
     pg_ratio = 1;
-    fprintf("Step %d", step);
+    fprintf("Step count: 1");
     while (step <= maxstep && pg_ratio >= prop)
-        if step > 1
-            for j = 1:(log10(step + 1))
+        if step == 1
+            fprintf("\b")
+        else
+            for j = 1:(log10(step - 1) + 1)
                 fprintf("\b");
             end
         end
