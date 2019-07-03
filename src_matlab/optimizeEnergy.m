@@ -19,6 +19,6 @@ function [P_next, en, pg_ratio, err, alph] = optimizeEnergy(Pfn, k, s, alph, eps
         if pg_ratio > 0.1 && err/alph > eps
             alph = alph/1.005;
         end
-        fprintf("Step %d Complete", step);
+        fprintf("Step %d Complete\n", step);
     end
 end
