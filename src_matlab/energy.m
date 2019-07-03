@@ -1,14 +1,26 @@
-function e = energy(points, s)
+% function e = energy(points, s)
+%     p = -1 * s;
+%     n = size(points, 1);
+%     sum = 0;
+%     parfor i = 1:n-1
+%         for j = (i + 1):n
+%             no = norm(points(j, :) - points(i, :));
+%             sum = sum + power(no, p);
+%         end
+%     end
+%     e = sum;
+% end
+
+function e = energy(P, s)
     p = -1 * s;
-    n = size(points, 1);
-    sum = 0;
-    parfor i = 1:n-1
-        for j = (i + 1):n
-            no = norm(points(j, :) - points(i, :));
-            sum = sum + power(no, p);
-        end
+    n = size(P, 1);
+    D = zeros(n, n);
+    parfor i = 1:n
+        D(i,:) = vecnorm(P - P(i,:),2,2)';
     end
-    e = sum;
+    D = D .^ p;
+    D = triu(D, 1);
+    e = sum(D, 'all');
 end
 
 % function e = energy(dists, s)
