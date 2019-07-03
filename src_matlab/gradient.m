@@ -1,8 +1,8 @@
-function [val, del] = gradient(P, s)
+function [del] = gradient(P, s)
 n = size(P, 1);
 del = zeros(size(P));
 val = 0;
-parfor i = 1
+parfor i = 1:n
     val = 0;
     for j = 1:n
         if (j ~= i)
