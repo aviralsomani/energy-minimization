@@ -1,4 +1,4 @@
-n = 10;
+n = 10000;
 s = 1;
 P = normrnd(0, 1, [n 3]);
 P = normalize(P);
