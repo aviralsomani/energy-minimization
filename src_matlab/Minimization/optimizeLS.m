@@ -7,7 +7,7 @@ function [out, en, pg_ratio, err] = optimizeLS(P, k, s, alph, eps, maxstep, prop
     L1Grad_sum = 0;
     pg_ratio = 1;
     while(err >= eps && step <= maxstep && pg_ratio >= prop)
-        [~,grad] = gradient(P, s);
+        [~,grad] = mGradient(P, s);
         alph = lineSearch(P, en(size(en)), s, alph);
         for i = 1:size(P, 1)
             proj = step_S2(P(i,:), grad(i, :))

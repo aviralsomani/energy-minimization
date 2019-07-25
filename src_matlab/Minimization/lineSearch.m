@@ -1,6 +1,6 @@
 function [alph] = lineSearch(P, curr_E, s, alph)
     proj_grad = zeros(size(P));
-    grad = gradient(P, s);
+    grad = mGradient(P, s);
     step = zeros(size(P));
     P_g = zeros(size(P, 2))
     

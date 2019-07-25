@@ -4,7 +4,7 @@ function [P_next, en, pg_ratio, err, alph] = optimizeEnergy(Pfn, s, alph, eps, m
     pg_ratio = 1;
     fprintf("Step count: 1");
     en = zeros(maxstep+1, 1);
-    en(step) = oldEnergy(P, s);
+    en(step) = iterEnergy(P, s);
     while (step <= maxstep && pg_ratio >= prop)
         if step == 1
             fprintf("\b")
@@ -15,8 +15,8 @@ function [P_next, en, pg_ratio, err, alph] = optimizeEnergy(Pfn, s, alph, eps, m
         end
         fprintf("%d", step);
         step = step + 1;
-        [G] = gradient(P, s);
-        Proj = step_S2(P, G);
+        [G] = mGradient(P, s);
+        Proj = stepS2(P, G);
         L1Proj_sum = sum(vecnorm(Proj, 2, 2));
         L1Grad_sum = sum(vecnorm(G, 2, 2));
         if stoch
@@ -25,7 +25,7 @@ function [P_next, en, pg_ratio, err, alph] = optimizeEnergy(Pfn, s, alph, eps, m
             P_next = P - alph * Proj;
         end
         P_next = P_next./vecnorm(P_next, 2, 2);
-        en(step) = oldEnergy(P, s);
+        en(step) = iterEnergy(P, s);
         plot(en);
         err = abs(en(size(en, 1)) - en(size(en,1)-1));
         P = P_next;
