@@ -28,8 +28,7 @@ function [output, energy, pg_ratio, err, alph] = mgd(P, k, f, gradf, val, s, alp
         step = step + 1;
         energy(step) = vectorizedEnergy(P, s);
         P = output;
-        pg_ratio = l1sumproj/l1sumgrad;
-        
+        pg_ratio = l1sumproj/l1sumgrad;      
         if pg_ratio > 0.1 && err/alph > eps
             alph = alph/1.005;
         end

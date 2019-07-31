@@ -1,5 +1,5 @@
 t5590 = csvread('5590tangleapprox.csv');
-n = 800;
+n = 500;
 P = t5590(1:n,:);
 plotPoints(P);
 
@@ -8,9 +8,9 @@ plotPoints(P);
 % for j = 1:size(t5590,1)
 %     v(j) = f(t5590(j,:));
 % end
-
+tic
 [output, energy, pg_ratio, err, alph] = mgd(P,100,@f,@gradf,0,1,0.01,0.001,1000,0.0005,false);
-
+toc
 % 
 % plotPoints(output);
 % 
